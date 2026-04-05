@@ -11,7 +11,7 @@ export const create = async (req, res, next) => {
 
 export const getAll = async (req, res, next) => {
   try {
-    const records = await service.getRecords(req.user);
+    const records = await service.getRecords(req.user, req.query);
     res.json(records);
   } catch (err) {
     next(err);
