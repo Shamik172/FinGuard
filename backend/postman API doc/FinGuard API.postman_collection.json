@@ -1,0 +1,379 @@
+{
+  "info": {
+    "_postman_id": "1bd91053-820e-4108-8394-3f2559eceb45",
+    "name": "FinGuard API",
+    "description": "Backend APIs for Finance Data Processing and Access Control system.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51699788",
+    "_collection_link": "https://go.postman.co/collection/51699788-1bd91053-820e-4108-8394-3f2559eceb45?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Auth -> Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Admin2\",\n  \"email\": \"admin2@test.com\",\n  \"password\": \"123456\",\n  \"role\": \"ADMIN\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Auth -> Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin2@test.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Users → Get All Users(ADMIN only)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Records",
+      "item": [
+        {
+          "name": "Records -> Create Record",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 50000,\n  \"type\": \"INCOME\",\n  \"category\": \"Salary\",\n  \"date\": \"2026-04-05\",\n  \"note\": \"salary credited\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/records",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "records"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Records -> Get Record",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/records/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "records",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Records -> Update Record",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 2500,\n  \"type\": \"EXPENSE\",\n  \"category\": \"Food\",\n  \"date\": \"2026-04-05\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/records/69d35f4bdf26b1ef9cfa7210",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "records",
+                "69d35f4bdf26b1ef9cfa7210"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Records -> Delete Record",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/records/69d35f65df26b1ef9cfa7211",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "records",
+                "69d35f65df26b1ef9cfa7211"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Record -> Filter by type and category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/records?type=EXPENSE&category=Food",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "records"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "EXPENSE"
+                },
+                {
+                  "key": "category",
+                  "value": "Food"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Record -> Record in Date Range",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Dashboard -> Summary",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/dashboard/summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dashboard -> Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dashboard/categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dashboard -> Trends",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDM1ZDUwZGYyNmIxZWY5Y2ZhNzIwZiIsImlhdCI6MTc3NTQ1OTg1OSwiZXhwIjoxNzc1NTQ2MjU5fQ.Hcyz90xOtezlaLZk3X40kSMqVW0nECqx-VFl7mSHOeg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dashboard/trends",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard",
+                "trends"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
